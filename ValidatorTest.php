@@ -1,0 +1,20 @@
+<?php
+use PHPUnit\Framework\TestCase;
+require_once "Validator.php";
+
+class ValidatorTest extends TestCase
+{
+    public function testValidateAgeWithValidAge()
+    {
+        $this->assertTrue(validateAge(30));
+        $this->assertTrue(validateAge(-30));
+    }
+
+    public function testEmptyAgeThrowsException()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        validateAge("");
+    }
+    
+
+}
